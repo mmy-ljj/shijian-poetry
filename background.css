@@ -1,0 +1,18 @@
+/* Paper, light and distant landscape */
+body{background:#f4f3e9;isolation:isolate;position:relative}
+body::before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;background:radial-gradient(ellipse at 8% 12%,#c8d9bd80,transparent 48%),radial-gradient(ellipse at 92% 45%,#d7e2c766,transparent 48%),radial-gradient(ellipse at 48% 95%,#e7dcc36b,transparent 55%),linear-gradient(135deg,#faf8ef,#f0f3e8 60%,#f7f4e9)}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:5;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.78' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%23000' filter='url(%23n)' opacity='.7' d='M0 0h180v180H0z'/%3E%3C/svg%3E")}
+header{background:#f9f9f042;border-bottom-color:#83977330;position:relative;z-index:6}
+.intro{position:relative}.intro::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(#f7f7efbb,#f7f7efed),url(assets/0.jpg) center 45%/cover;mask-image:linear-gradient(transparent,#000 35%,#000 65%,transparent)}
+.intro h1{text-shadow:0 2px 20px #fff9}
+.daily{isolation:isolate}.daily::before{content:"";position:absolute;inset:8% 0 0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 50% 63%,#91aa7752,transparent 57%);filter:blur(18px)}
+.stage::before{content:"";position:absolute;bottom:8px;left:12%;right:12%;height:60px;pointer-events:none;background:radial-gradient(ellipse,#526f4e26,transparent 68%);filter:blur(16px)}
+.poem-cover{box-shadow:0 20px 38px #354c3333,0 2px 4px #2434241a}.circle{background:#fafbf37a}.circle:hover{background:#e2ebd7}
+.feature{box-shadow:0 12px 38px #536b4010;border:1px solid #bbc9ac4d;background:linear-gradient(130deg,#e9eedf,#f0f0e1)}
+.topic{background:linear-gradient(125deg,#f8f9f0a8,#e5ecdcbd);border:1px solid #c9d4bd6b}
+.poem-item{border-bottom-color:#a9b99a4d}.poem-item:hover{background:linear-gradient(90deg,#e2ebd74d,transparent)}
+.reader{background:#fcfbf2c7;padding:36px 42px;border:1px solid #cdd5bf7a;box-shadow:0 15px 65px #4c633412;border-radius:4px}
+footer{background:linear-gradient(transparent,#edf0e240);border-top-color:#a9b99a66}
+@media(max-width:700px){.reader{margin:28px 16px;padding:24px 20px}.daily::before{filter:blur(10px)}body::after{opacity:.025}}
+
+@media(max-width:420px){.intro h1{font-size:24px;letter-spacing:2px}}
