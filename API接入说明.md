@@ -38,3 +38,13 @@ character：`libai` / `sushi` / `liqingzhao` / `luxun`。length：`short` / `med
 ## Three.js背景
 
 Three.js 0.180.0 随项目本地提供，许可证见 vendor/THREE-LICENSE.txt。背景动态可暂停；页面不可见或离开首页时停止渲染，开启减少动态效果或缺少WebGL时保留静态背景。
+
+## 云端神经语音（可选）
+
+使用微软 Azure Speech 官方接口：在服务端 `.env` 填写 `AZURE_SPEECH_KEY` 与 `AZURE_SPEECH_REGION`，仍用 `node --env-file=.env persona-server.mjs` 启动。在网页人物语音中的“云端自然语音设置”填写 `https://你的后端/api/tts`。Azure Speech密钥与DeepSeek密钥分别配置，不能混用。
+
+`POST /api/tts` 请求示例：`{"character":"libai","text":"山月正好，何不坐下聊聊？"}`；返回 `audio/mpeg`。预设为云希（李白）、云扬（苏轼）、晓晓（李清照）、云健（鲁迅），可在 tts-service.mjs 修改。按照角色气质选择，不声称匹配本人声纹。
+
+整段文本一次合成，使用24kHz、96kbps MP3。服务端转发音频流，当前网页会先接收完整音频再连续播放，以避免边生成边播放时网络抖动导致的断续；首声等待时间取决于文本长度及服务网络。停止、更换人物、离开页面都会取消请求并释放音频资源。未配置云端时继续使用设备语音。真实音质与延迟需填写语音密钥后试听验证。
+
+官方文档：https://learn.microsoft.com/azure/ai-services/speech-service/rest-text-to-speech
