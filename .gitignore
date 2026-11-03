@@ -1,0 +1,6 @@
+.env
+.env.*
+!.env.example
+.taste-skill/
+preview.html
+*.log
